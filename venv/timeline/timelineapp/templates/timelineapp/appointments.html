@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>appointments</title>
+
+</head>
+<body>
+{% if appointments == None %}
+    "لا يوجد مواعيد"
+{% endif %}
+{% for appointment in appointments %}
+    {{ appointment.get_title_display }}
+
+    <a href="{% url 'timelineapp:schedules' appointment.id %}">{{ appointment.title }} check one </a>
+{% endfor%}
+</body>
+</html>
+
+
+

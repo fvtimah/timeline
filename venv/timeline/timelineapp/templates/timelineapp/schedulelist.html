@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>schedule list</title>
+</head>
+<body>
+
+{% for schedual in schedulelist %}
+    {{ schedual.get_title_display }}
+    {{ schedual.name }}
+    <a href="{% url 'timelineapp:appointments' schedual.pk %}">{{ schedual.description }} hey </a>
+    <br>
+{% endfor%}
+
+</body>
+</html>
+
+
+

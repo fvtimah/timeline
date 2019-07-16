@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>new schedule</title>
+    <style type ="text/css">
+           header {
+                  background-color: lavender;
+    padding: 30px;
+    text-align: center;
+    font-size: 80px;
+    font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+></style>
+
+
+</head>
+
+<body>
+<header >
+
+    <b>  TimeLine </b>
+
+</header>
+{% block content %}
+    <h2>create a new schedule</h2>
+    <form class="site-form" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" value="save">Save</button>
+    </form>
+
+{% endblock %}
+
+</body>
+</html>

@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Schedules</title>
+
+
 </head>
 <body>
-
+{#{% for schedual in scheduals %}#}
+    {{ schedual.get_title_display }}
+    <a href="{% url 'timelineapp:appointments' schedual.pk %}">{{ schedual.description }} hey </a>
+{#{% endfor%}#}
 </body>
 </html>

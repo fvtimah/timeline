@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>appointments lisf</title>
+</head>
+<body>
+
+
+{% for appointment in appointmentslist %}
+    {{ appointment.get_title_display }}
+    {{ appointment.name }}
+    <a href="{% url 'timelineapp:appointments' appointment.pk %}">{{ appointment.name }} hey </a>
+    <br>
+{% endfor%}
+
+</body>
+</html>

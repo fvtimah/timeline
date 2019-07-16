@@ -1,10 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <head>
     <meta charset="UTF-8">
     <title>main page</title>
+{% load staticfiles %}
+        <link rel="stylesheet" href="{% static 'timelineapp/css/bootstrap.css' %}" type="text/css">
+
+    <style type="text/css">
+        span {
+            font-size: larger;
+            ;
+            border: 1px solid blue;
+
+        }
+        pre {
+            font-family: "Arial Black", fantasy;
+            color: darkblue;
+            float: left ;
+        }
+          header {
+    background-color: lavender;
+    padding: 30px;
+    text-align: center;
+    font-size: 80px;
+    font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+
+    color: skyblue;
+    }
+     ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: lavender;
+}
+
+li {
+  float: left;
+}
+
+li a, dropbtn {
+  display: block;
+  color: skyblue;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: lavenderblush;
+}
+
+
+        .top-menu {
+        }
+    </style>
+
 </head>
 <body>
+<header >
+
+    <b>  TimeLine </b>
+
+</header>
+        <div class="page-header">
+
+<ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">new projects</a></li>
+  <li><a href="#about">My Project</a></li>
+    <li><a href="#page">New Projects</a></li>
+</ul>
+
+
+
+<h1 style="color:red">
+MAKE YOUR TIMELINE IN MINUTES!
+</h1>
+
+
+<pre>
+                we are introduring one of akind
+                    happy msgical website the meets all of your needs
+                        HOPEFULLY
+</pre>
 
 </body>
 </html>

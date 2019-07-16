@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>appointment new</title>
+        {% load static %}
+    <link rel="stylesheet" href="{% static 'timelineapp/css/magnific-popup.css' %}" type="text/css">
+</head>
+<body>
+
+
+{% block content %}
+    <h2>create a new appointment</h2>
+    <form class="site-form" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" value="save">Save</button>
+    </form>
+
+{% endblock%}
+
+
+</body>
+</html>
