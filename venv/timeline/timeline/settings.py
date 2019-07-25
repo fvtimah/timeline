@@ -31,13 +31,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.admin' ,
+    'django.contrib.auth' ,
+    'django.contrib.contenttypes' ,
+    'django.contrib.sessions' ,
+    'django.contrib.messages' ,
+    'django.contrib.staticfiles' ,
     'timelineapp',
+    'users.apps.UsersConfig'
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'timeline.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,8 +121,18 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+AUTH_USER_MODEL = 'users.CustomUser'
+
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+
+
+MEDIA_URL =  '/media/'
+DEFAULT_MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')

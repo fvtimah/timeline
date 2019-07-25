@@ -1,11 +1,17 @@
 from datetime import timezone
 from typing import Dict , Any
 
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.core.checks import messages
+from django.db import transaction
 from django.shortcuts import render , redirect
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from .forms import *
 from django.urls import reverse
+from django.urls import reverse_lazy
+from django.views.generic.edit import CreateView
 
 from .models import Schedules,appointments as Appointment
 
@@ -71,3 +77,36 @@ def appointment_new (request):
     else:
         form = AppointmentsForm()
         return render (request, 'timelineapp/appointment_new.html', {'form': form})
+
+
+def update_profile(request, user_id):
+    user = User.objects.get(pk=user_id)
+    user.profile.bio = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit...'
+    user.save()
+
+
+
+
+
+@login_required
+@transaction.atomic
+def update_profile(request):
+    if request.method == 'POST':
+        user_form = UserForm(request.POST, instance=request.user)
+        profile_form = ProfileForm(request.POST, instance=request.user.profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.CheckMessage(request,('Your profile was successfully updated!'))
+            return redirect('settings:profile')
+        else:
+            messages.ERROR(request,('Please correct the error below.'))
+    else:
+        user_form = UserForm(instance=request.user)
+        profile_form = ProfileForm(instance=request.user.profile)
+    return render(request, 'Timelineapp/profile.html', {
+        'user_form': user_form,
+        'profile_form': profile_form
+    })
+
+
