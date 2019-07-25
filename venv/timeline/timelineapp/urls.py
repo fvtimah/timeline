@@ -16,6 +16,6 @@ urlpatterns = [
     path ('appointment_new/',views.appointment_new, name='appointment_new' ),
     path ('appointmentslist/', views.appointmentslist, name='appointmentslist'),
 
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
 
 
