@@ -15,6 +15,5 @@ urlpatterns = (
     path ( 'schedulelist/' , views.schedulelist , name = 'schedulelist' ) ,
     path ( 'appointment_new/' , views.appointment_new , name = 'appointment_new' ) ,
     path ( 'appointmentslist/' , views.appointmentslist , name = 'appointmentslist' ) ,
-
 )
 
